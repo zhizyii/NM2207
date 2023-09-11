@@ -1,0 +1,3 @@
+"0","# Y axis is count:"
+"0","ggplot(df_fees, aes(x = fees, fill = discipline)) + geom_histogram() +"
+"0","      facet_wrap(~discipline)"

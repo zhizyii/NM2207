@@ -1,0 +1,2 @@
+"0","fees_AI <- df_fees[df_fees$discipline == ""Artificial Intelligence"",2]"
+"0","hist(fees_AI)"

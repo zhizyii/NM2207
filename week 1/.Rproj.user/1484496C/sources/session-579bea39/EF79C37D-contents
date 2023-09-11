@@ -1,0 +1,25 @@
+---
+title: "Challenge-1"
+author: "Ho Zhi Yi"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Hello! My name is Zhi Yi, and I am a year 2 Industrial and Systems Engineering student. I am also taking a minor in data analytics and interactive media development. I like to listen to music during my free time and I enjoy playing musical instruments. I play the guzheng and harmonica :)
+
+```{r, out.height= "350px",out.width= "280px",echo=TRUE,eval=TRUE,fig.cap="Here is a photo of me!"}
+knitr::include_graphics("zhiyi.jpg") 
+```
+
+
+```{r, out.height= "350px",out.width= "800px",echo=TRUE,eval=TRUE,fig.cap="This is the screenshot of the R studio layout."}
+knitr::include_graphics("screenshot.png") 
+```
+

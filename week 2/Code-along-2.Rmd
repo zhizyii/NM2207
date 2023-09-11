@@ -1,0 +1,241 @@
+---
+title: "code along wk2"
+author: "Ho Zhi Yi"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+load libraries
+```{r}
+library(tidyverse)
+library(ggplot2)
+library(shiny)
+```
+
+
+
+```{r}
+# Load R packages for data science
+library(tidyverse)
+# Data in starwars data-set
+starwars
+```
+
+
+
+```{r}
+# Salient features of the data-set
+?starwars
+```
+
+
+
+```{r}
+# Catch a glimpse starwars data-set
+glimpse(starwars)
+```
+
+
+
+```{r}
+# Access column "height"
+starwars$height
+```
+
+
+
+```{r}
+# Access column "mass"
+starwars$mass
+```
+
+
+
+```{r}
+# Access column "gender"
+starwars$gender
+```
+
+
+
+```{r}
+# Access column "gender"
+starwars$films[1:3]
+```
+
+
+
+```{r}
+# Rows of interest
+filter_rows <- c("Luke Skywalker","R2-D2","Darth Vader") # Extract row corresponding to Luke Skywalker
+starwars %>% filter(name%in%filter_rows)
+```
+
+
+
+```{r}
+# Rows of interest
+filter_rows <- c("Luke Skywalker","R2-D2")
+# Extract row corresponding to Luke Skywalker
+starwars %>% filter(name%in%filter_rows) %>% select(name,height,mass,homeworld,films)
+```
+
+
+
+```{r}
+# Rows of interest
+filter_rows <- c("Luke Skywalker","R2-D2")
+# Extract rows in 'rows'
+starwars %>% filter(name%in%filter_rows) %>% pull(films)
+```
+
+
+
+```{r}
+# Number of rows in the data-set
+nrow(starwars)
+ncol(starwars)
+dim(starwars)
+```
+
+
+
+```{r}
+# Invoke the library
+library(Tmisc)
+# Filter data-set I in quartet 
+quartet %>% filter(set=="I")
+```
+
+
+
+```{r}
+# Invoke the library
+library(Tmisc)
+# Filter data-set I in quartet 
+quartet %>% filter(set=="II")
+```
+
+
+
+```{r}
+# Invoke the library
+library(Tmisc)
+# Filter data-set I in quartet 
+quartet %>% filter(set=="III")
+```
+
+
+
+```{r}
+# Invoke the library
+library(Tmisc)
+# Filter data-set I in quartet 
+quartet %>% filter(set=="IV")
+```
+
+
+
+```{r}
+# Obtain the needed statistics
+grouped_quartet %>%
+ summarise(
+ mean_x = mean(x),
+ mean_y = mean(y),
+ sd_x = sd(x),
+ sd_y = sd(y),
+r = cor(x, y) )
+```
+
+
+
+```{r}
+# Plot the data
+ggplot(data=starwars)
+```
+
+
+
+```{r}
+# Plot height along x-axis 
+ggplot(data=starwars,mapping=aes(x=height))
+```
+
+
+
+```{r}
+# Plot mass along y-axis 
+ggplot(data=starwars,mapping=aes(x=height,y=mass))
+```
+
+
+
+```{r}
+ggplot(data=starwars,mapping=aes(x=height,y=mass)) +
+geom_point()
+```
+
+
+
+```{r}
+ggplot(data=starwars,mapping=aes(x=height,y=mass)) + geom_point() +
+labs(x="Height (cm)",y="Weight (Kg)")
+```
+
+
+
+```{r}
+ggplot(data=starwars,mapping=aes(x=height,y=mass)) +
+ geom_point() +
+ labs(x="Height (cm)",y="Weight (Kg)",
+title="Mass versus Height")
+```
+
+
+
+```{r}
+ggplot(data=starwars,mapping=aes(x=height,y=mass)) +
+ geom_point() +
+ labs(x="Height (cm)",y="Weight (Kg)",
+title="Mass versus Height")
+```
+
+
+
+```{r}
+# Install package
+install.packages("shiny") # Invoke the package
+library(shiny)
+# Run an example from the library
+runExample("01_hello")
+```
+
+
+
+```{r}
+# Install package
+install.packages("shiny") # Invoke the package
+library(shiny)
+# Run an example from the library
+runExample("06_tabsets")
+```
+
+
+
+```{r}
+
+```
+
+
+
+```{r}
+
+```
+
+
+

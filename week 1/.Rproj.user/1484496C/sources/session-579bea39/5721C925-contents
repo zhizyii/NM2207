@@ -1,0 +1,94 @@
+---
+title: "tAPP 1"
+author: "Ho Zhi Yi"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## running the csv file
+
+```{r}
+tv <- read.csv("../data/tv.csv") 
+head(tv)
+summary(tv)
+```
+
+
+1) What is the average commercial time of the basic tv cable? ( 2 d.p.)
+
+```{r}
+mean_basic <- mean(tv[tv$Cable == "Basic",2])
+mean_basic
+```
+
+
+2) What is the standard deviation commercial time of the extended tv cable? (2 d.p.)
+
+```{r}
+sd_basic <- sd(tv[tv$Cable == "Extended",2])
+sd_basic
+```
+
+
+3) Generate a visualization to compare the differences in commercial time between basic and extended tv cable. Comment on the visualization.
+
+```{r}
+ggplot(tv, aes(x = Times, fill = Cable)) + geom_histogram() +
+      facet_wrap(~Cable)
+```
+
+
+4) Generate 10^4 bootstrap samples on the difference in mean times. Plot the distribution.
+   What is the bootstrap mean and standard error?
+
+```{r}
+
+
+```
+
+
+5) Obtain the 95% bootstrap percentile confidence interval. Interpret this interval.
+
+```{r}
+
+
+```
+
+
+6) What is the bootstrap estimate of the bias? What fraction of the bootstrap error does     this represent?
+
+```{r}
+
+
+```
+
+
+7) Conduct a permutation test to see if the difference in mean commercial times is           statistically significant. State your conclusion.
+
+```{r}
+
+
+```
+
+
+
+
+
+
+
+
+
+
+## Including Plots
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

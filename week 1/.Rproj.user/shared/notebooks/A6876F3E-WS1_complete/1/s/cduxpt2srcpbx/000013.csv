@@ -1,0 +1,4 @@
+"0",""
+"0","# Y axis is density:"
+"0","ggplot(df_fees, aes(x = fees, fill = discipline)) + geom_histogram(aes(y=after_stat(density))) +"
+"0","      facet_wrap(~discipline)"
