@@ -1,11 +1,12 @@
 ---
-title: "Week-6: Code-along"
+pdf_document: default
 author: "Ho Zhi Yi"
 date: "`r Sys.Date()`"
 output:
-  html_document:
+  html_document: null
   df_print: paged
-pdf_document: default
+  pdf_document: default
+title: "Week-6: Code-along"
 ---
 
 ```{r setup, include=FALSE}
