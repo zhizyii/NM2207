@@ -70,3 +70,4 @@
 [1,"GET: /\n"]
 [1,"GET: /about.html\nWARNING: connection closed before message completed\n"]
 [1,"GET: /doc.html\n"]
+[1,"GET: /doc.html\n"]
