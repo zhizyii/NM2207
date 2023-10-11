@@ -1,0 +1,75 @@
+---
+title: "Documentations"
+---
+
+## Week 1
+
+|                    |                |                                                                                         |
+|---------------------------|:--------------------:|:----------------------:|
+|                    | **Code-along** |                                      **Challenge**                                      |
+| PDF Version        |       \-       | [Challenge-1.pdf](https://github.com/zhizyii/NM2207/blob/main/week%201/Challenge-1.pdf) |
+| R Markdown Version |       \-       | [Challenge-1.rmd](https://github.com/zhizyii/NM2207/blob/main/week%201/Challenge-1.Rmd) |
+
+## Week 2
+
+|                    |                                                                                           |                                                                                         |
+|-------------------------|:----------------------:|:----------------------:|
+|                    |                                      **Code-along**                                       |                                      **Challenge**                                      |
+| PDF Version        | [Code-along-2.pdf](https://github.com/zhizyii/NM2207/blob/main/week%202/Code-along-2.pdf) | [Challenge-2.pdf](https://github.com/zhizyii/NM2207/blob/main/week%202/Challenge-2.pdf) |
+| R Markdown Version | [Code-along-2.rmd](https://github.com/zhizyii/NM2207/blob/main/week%202/Code-along-2.Rmd) | [Challenge-2.rmd](https://github.com/zhizyii/NM2207/blob/main/week%202/Challenge-2.Rmd) |
+
+## Week 3
+
+|                    |                                                                                           |                                                                                         |
+|--------------------------|:---------------------:|:----------------------:|
+|                    |                                      **Code-along**                                       |                                      **Challenge**                                      |
+| PDF Version        | [Code-along-3.pdf](https://github.com/zhizyii/NM2207/blob/main/week%203/Code-along-3.pdf) | [Challenge-3.pdf](https://github.com/zhizyii/NM2207/blob/main/week%203/Challenge-3.pdf) |
+| R Markdown Version | [Code-along-3.rmd](https://github.com/zhizyii/NM2207/blob/main/week%203/Code-along-3.Rmd) | [Challenge-3.rmd](https://github.com/zhizyii/NM2207/blob/main/week%203/Challenge-3.Rmd) |
+
+## Week 4
+
+|                    |                                                                                           |                                                                                         |
+|--------------------------|:---------------------:|:----------------------:|
+|                    |                                      **Code-along**                                       |                                      **Challenge**                                      |
+| PDF Version        | [Code-along-4.pdf](https://github.com/zhizyii/NM2207/blob/main/week%204/Code-along-4.pdf) | [Challenge-4.pdf](https://github.com/zhizyii/NM2207/blob/main/week%204/Challenge-4.pdf) |
+| R Markdown Version | [Code-along-4.rmd](https://github.com/zhizyii/NM2207/blob/main/week%204/Code-along-4.Rmd) | [Challenge-4.rmd](https://github.com/zhizyii/NM2207/blob/main/week%204/Challenge-4.Rmd) |
+
+## Week 5
+
+|                    |                                                                                           |                                                                                         |
+|--------------------------|:---------------------:|:----------------------:|
+|                    |                                      **Code-along**                                       |                                      **Challenge**                                      |
+| PDF Version        | [Code-along-5.pdf](https://github.com/zhizyii/NM2207/blob/main/week%205/Code-along-5.pdf) | [Challenge-5.pdf](https://github.com/zhizyii/NM2207/blob/main/week%205/Challenge-5.pdf) |
+| R Markdown Version | [Code-along-5.rmd](https://github.com/zhizyii/NM2207/blob/main/week%205/Code-along-5.Rmd) | [Challenge-5.rmd](https://github.com/zhizyii/NM2207/blob/main/week%205/Challenge-5.Rmd) |
+
+## Week 6
+
+|                    |                                                                                           |                                                                                         |
+|--------------------------|:---------------------:|:----------------------:|
+|                    |                                      **Code-along**                                       |                                      **Challenge**                                      |
+| PDF Version        | [Code-along-6.pdf](https://github.com/zhizyii/NM2207/blob/main/week%206/Code-along-6.pdf) | [Challenge-6.pdf](https://github.com/zhizyii/NM2207/blob/main/week%206/Challenge-6.pdf) |
+| R Markdown Version | [Code-along-6.rmd](https://github.com/zhizyii/NM2207/blob/main/week%206/Code-along-6.Rmd) | [Challenge-6.rmd](https://github.com/zhizyii/NM2207/blob/main/week%206/Challenge-6.Rmd) |
+
+## Week 7
+
+|                    |                |                                                                                         |
+|--------------------------|:---------------------:|:----------------------:|
+|                    | **Code-along** |                                      **Challenge**                                      |
+| PDF Version        |       \-       | [Challenge-7.pdf](https://github.com/zhizyii/NM2207/blob/main/week%207/Challenge-7.pdf) |
+| R Markdown Version |       \-       | [Challenge-7.rmd](https://github.com/zhizyii/NM2207/blob/main/week%207/Challenge-7.Rmd) |
+
+## Week 8
+
+|                    |                                                                                                                               |
+|--------------------------|:---------------------------:|
+|                    |                                               **Code-along 8 and Challenge 8**                                                |
+| PDF Version        |   [Code-along-8-and-Challenge-8.pdf](https://github.com/zhizyii/NM2207/blob/main/week%208/Code-along-8-and-Challenge-8.pdf)   |
+| R Markdown Version | [Code-along-8-and-Challenge-8.rmd](https://github.com/zhizyii/NM2207/blob/main/week%208/Code-along-8%20and%20Challenge-8.Rmd) |
+
+## Week 9
+
+|                    |                                                                                           |                                                                                         |
+|--------------------------|:---------------------:|:----------------------:|
+|                    |                                      **Code-along**                                       |                                      **Challenge**                                      |
+| PDF Version        | [Code-along-9.pdf](https://github.com/zhizyii/NM2207/blob/main/week%202/Code-along-2.pdf) | [Challenge-9.pdf](https://github.com/zhizyii/NM2207/blob/main/week%201/Challenge-1.pdf) |
+| R Markdown Version | [Code-along-9.rmd](https://github.com/zhizyii/NM2207/blob/main/week%202/Code-along-2.Rmd) | [Challenge-9.rmd](https://github.com/zhizyii/NM2207/blob/main/week%201/challenge1.Rmd)  |

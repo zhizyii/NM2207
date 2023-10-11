@@ -1,0 +1,26 @@
+---
+title: "Challenge-8"
+author: "Ho Zhi Yi"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+Challenge - 8
+1. Go through all the 11 examples offered by Shiny package
+2. Pick one among them of your choice and customize it
+3. The customizations could be with text, images, plots, etc.
+4. Insert screenshots of your final dashboard and explain your customizations in an R Markdown document
+5. Knit the document and upload it on Canvas
+6. Make sure that the corresponding code is saved in folder, "Week-8", upload it on Github.
+7. Make sure that your Github profile is up-to-date with the coursework of all the Weeks so far.
+The aim of this exercise is to familiarise you with the several possible ways Shiny can be used. 
+```{r}
+library(shiny)
+runExample("01_hello")
+```
+

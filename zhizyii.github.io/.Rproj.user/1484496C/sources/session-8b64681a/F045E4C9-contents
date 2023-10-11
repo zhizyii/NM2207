@@ -1,0 +1,28 @@
+project:
+  type: website
+
+website:
+  title: "Ho Zhi Yi"
+  navbar:
+    foreground: black
+    left:
+      - href: index.qmd
+        text: Home
+      - about.qmd
+      - doc.qmd
+    tools:
+      - icon: github
+        menu:
+          - text: Github Repository
+            url:  https://github.com/zhizyii/NM2207
+  search: false
+  page-navigation: true
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
+    toc: true
+
+editor: visual
+
