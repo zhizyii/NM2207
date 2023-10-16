@@ -1,0 +1,114 @@
+---
+title: "Code-along-9"
+author: "Ho Zhi Yi"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+load the library
+```{r, eval-TRUE, warning=FALSE}
+library(tidyverse)
+```
+
+
+Slide 8
+```{r, eval=TRUE}
+#tidy
+tidydata <- tribble(
+  ~country, ~year, ~cases, ~population,
+  "Afghanistan", 1999, 745, 19987071,
+  "Afghanistan", 2000, 2666, 20595360,
+  "Brazil", 1999, 37737, 172006362,
+  "Brazil", 2000, 80488, 174504898,
+  "China", 1999, 212258, 1272915272,
+  "China", 2000, 213766, 1280428583)
+
+#non-tidy
+nontidydata <- tribble(
+  ~country,~year,~rate,
+  "Afghanistan", 1999, "745/19987071",
+  "Afghanistan", 2000, "2666/20595360",
+  "Brazil", 1999, "37737/172006362",
+  "Brazil", 2000, "80488/174504898",
+  "China", 1999, "212258/1272915272",
+  "China", 2000, "213766/1280428583")
+
+tidydata
+nontidydata
+```
+
+Slide 11
+```{r, eval=TRUE}
+tidieddata <- nontidydata %>%
+  separate(rate, into = c("cases",
+  "population"),
+  sep = "/")
+
+tidieddata
+```
+
+Slide 12
+```{r, eval=TRUE}
+newtidieddata <- tidieddata %>%
+  pivot_longer(
+  cols = cases:population,
+  names_to = "measurement",
+  values_to = "value"
+  )
+
+newtidieddata
+```
+
+Slide 14
+```{r, eval=TRUE}
+df <- tribble(
+  ~id, ~bp1, ~bp2,
+  "A", 100, 120,
+  "B", 140, 115,
+  "C", 120, 125
+  )
+
+df
+
+df %>%
+pivot_longer(
+cols = bp1:bp2,
+names_to = "measurement",
+values_to = "value"
+)
+```
+
+Slide 18
+```{r, eval=TRUE}
+newtidieddata
+newtidieddata %>%
+  pivot_wider(names_from="measurement",
+  values_from="value")
+```
+
+Slide 19
+```{r, eval=TRUE}
+df <- tribble(
+  ~id, ~measurement, ~value,
+  "A", "bp1", 100,
+  "B", "bp1", 140,
+  "B", "bp2", 115,
+  "A", "bp2", 120,
+  "A", "bp3", 105
+  )
+
+df
+
+df %>%
+  pivot_wider(
+  names_from = measurement,
+  values_from = value
+  )
+```
+
