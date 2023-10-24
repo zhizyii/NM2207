@@ -1,0 +1,150 @@
+---
+title: "Week-10-document"
+author: "Ho Zhi Yi"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, warning=FALSE, message=FALSE, include=FALSE, echo=FALSE}
+library(dplyr)
+library(magrittr)
+library(tidyr)
+# read csv file
+data <- read.csv("Annual_Greenhouse_Gas_(GHG)_Air_Emissions_Accounts.csv")
+```
+
+# **Week 9**
+
+1.  What is the topic that you have finalized? (Answer in 1 or 2 sentences)
+
+-   **Topic:** Greenhouse Gas Emissions Trends in the World
+
+-   Analyzing Greenhouse Gas Emissions Trends based on:
+
+    -   industry
+
+    ```{r, eval=TRUE}
+    distinct(data,Industry)
+    ```
+
+    -   region
+
+    ```{r, eval=TRUE}
+    distinct(data,Country)
+    ```
+
+    -   gas types
+
+    ```{r, eval=TRUE}
+    distinct(data,Gas_Type)
+    ```
+
+2.  What are the data sources that you have curated so far? (Answer 1 or 2 sentences)
+
+-   Annual greenhouse gas emissions by activity and by region (2010 to 2021)
+
+# **Week 10**
+
+1.  What is the question that you are going to answer? (Answer: One sentence that ends with a question mark that could act like the title of your data story)
+
+-   Who contributed the most to greenhouse gas emissions?
+
+2.  Why is this an important question? (Answer: 3 sentences, each of which has some evidence, e.g., *"According to the United Nations\..."* to justify why the question you have chosen is important),
+
+-   **Environmental Impact:** According to the United Nations, understanding the factors driving greenhouse gas emissions is crucial to address climate change and its environmental impact. Reducing emissions is essential to mitigate the consequences of global warming, such as more frequent extreme weather events and rising sea levels.
+
+-   **Economic Implications:** According to Earth.org, reducing carbon emissions would decrease the number of deaths related to air pollution and help to ease pressure on healthcare systems.
+
+-   **Policy and Mitigation:** Accoriding to the International Monetary Fund (IMF), to accelerate cuts to emissions, policymakers need detailed statistics to assist them in devising effective mitigation measures that can deliver the fastest and least disruptive pathway toward net zero emissions.
+
+3.  Which rows and columns of the dataset will be used to answer this question? (Answer: Actual names of the variables in the dataset that you plan to use).
+
+-   **Columns:**
+
+    -   **Year:** To track changes over time.
+
+        |       |       |       |       |       |       |       |       |       |       |       |       |
+        |:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
+        | F2010 | F2011 | F2012 | F2013 | F2014 | F2015 | F2016 | F2017 | F2018 | F2019 | F2020 | F2021 |
+
+    -   **Industry:** To examine emissions trends by sector.
+
+    -   **Country:** To analyze regional variations in emissions.
+
+    -   **Gas_Type:** To understand the contributions of different greenhouse gases.
+
+-   **Rows:**
+
+    -   for Industry:
+
+        -   Manufacturing
+
+        -   Electricity, Gas, Steam and Air Conditioning Supply
+
+        -   Transportation and Storage
+
+        -   Agriculture, Forestry and Fishing
+
+        -   Construction
+
+    -   for Country:
+
+        -   Africa
+
+        -   Americas
+
+        -   Asia
+
+        -   Europe
+
+        -   Oceania
+
+    -   for Gas_Type:
+
+        -   Carbon dioxide
+
+        -   Fluorinated gases
+
+        -   Methane
+
+        -   Nitrous oxide
+
+4.  *Include the challenges and errors that you faced and how you overcame them.*
+
+-   **Challenge 1**
+
+    -   the regions available in the **Country column** contains some regions that overlap, hence I had to select suitable regions to ensure that there are no overlapping countries in the regions used for analysis
+    -   the industries available in the **Industry column** contains some industries that overlap, hence I had to select suitable industries to ensure that there are no overlapping industries used for analysis
+    -   ***solution***: select relevant variables in the Country and Industry columns through filtering the data followed by creating a new data frame by selecting the relevant columns as shown below
+
+    ```{r}
+    new_data <- data %>%
+      filter(Country %in% c("Africa", "Americas", "Asia", "Europe", "Oceania")) %>%
+      filter(Industry %in% c("Manufacturing", "Electricity, Gas, 
+                             Steam and Air Conditioning Supply", "Transportation and Storage", 
+                             "Agriculture, Forestry and Fishing", "Construction")) %>%
+      select(Country, Industry, Gas_Type, F2010, F2011, F2012, F2013, F2014, F2015, 
+             F2016, F2017, F2018, F2019, F2020, F2021) 
+    ```
+
+-   **Challenge 2**
+
+    -   column names were not ideal and straight forward to use
+
+        -   the individual years were not named in numerical form
+        -   the Country column was a bit confusing because the values under this column are regions rather than specific countries
+
+    -   ***solution***: rename the columns accordingly as shown below
+
+    ```{r, eval=FALSE}
+    new_names <- c("Region", "Industry", "Gas_Type", 2010, 2011, 2012, 2013, 2014, 2015, 
+                   2016, 2017, 2018, 2019, 2020, 2021)
+
+    new_data %>% set_names(new_names)
+    ```
