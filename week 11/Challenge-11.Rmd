@@ -1,0 +1,217 @@
+---
+title: "Challenge-11"
+author: "Ho Zhi Yi"
+date: '`r Sys.Date()`'
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Load libraries
+```{r, message=FALSE}
+library(httr)
+library(jsonlite)
+library(tidyverse)
+```
+
+```{r}
+historic_state_data_url <- "https://api.covidactnow.org/v2/states.timeseries.json?apiKey=c85924a8e71d4785aaefb9e3234f18c4"
+raw_data <- GET(historic_state_data_url)
+```
+
+# Extract data
+```{r}
+data <- fromJSON(rawToChar(raw_data$content))
+```
+
+# Explore data
+```{r}
+glimpse(data)
+```
+
+# Questions
+
+## i. What is the population in various states of U.S.A?
+```{r}
+data$population
+```
+
+plot
+```{r}
+ggplot(data, aes(x=state,y=population)) + 
+  geom_bar(stat="identity") +
+  labs(x="States",y="Population") + 
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), legend.justification = c(0, 1))
+```
+
+## ii. What fraction of the population was infected ?
+```{r}
+sum(data$actuals$cases)/sum(data$population)
+```
+
+plot
+```{r}
+ggplot(data, aes(x=state,y=(data$actuals$cases/population))) + 
+  geom_bar(stat="identity") + 
+  labs(x="States",y="Infected (%)") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), legend.justification = c(0, 1))
+```
+
+
+## iii. What fraction of infected persons recovered ?
+```{r}
+sum(data$actuals$cases - data$actuals$deaths)/sum(data$actuals$cases)
+```
+
+plot
+```{r}
+ggplot(data, aes(x=state,y=((data$actuals$cases-data$actuals$deaths)/data$actuals$cases))) + 
+  geom_bar(stat="identity") + 
+  labs(x="States",y="recovered (%)") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), legend.justification = c(0, 1))
+```
+
+
+## iv. What fraction of the population is currently vaccinated ?
+```{r}
+sum(data$actuals$vaccinationsCompleted)/sum(data$population)
+```
+
+plot
+```{r}
+ggplot(data, aes(x=state,y=((data$actuals$vaccinationsCompleted)/data$population))) + 
+  geom_bar(stat="identity") + 
+  labs(x="States",y="recovered (%)") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 90, hjust = 1), legend.justification = c(0, 1))
+```
+
+
+## v. What was the transmission-like in the various states ?
+```{r}
+time_series <- data %>%
+  unnest(actualsTimeseries) 
+
+# Creating a new dataframe with needed data
+# Save date
+time_series_transmission <- tibble(Date=time_series$cdcTransmissionLevelTimeseries[[which(data$state=="CA")]]$date)
+# Transmission levels in each state
+time_series_transmission$Alaska <- time_series$cdcTransmissionLevelTimeseries[[which(data$state=="AK")]]$cdcTransmissionLevel
+
+time_series_transmission$California <- time_series$cdcTransmissionLevelTimeseries[[which(data$state=="CA")]]$cdcTransmissionLevel
+
+time_series_transmission$New_Jersey <- time_series$cdcTransmissionLevelTimeseries[[which(data$state=="NJ")]]$cdcTransmissionLevel
+
+time_series_transmission$Tennessee <- time_series$cdcTransmissionLevelTimeseries[[which(data$state=="TN")]]$cdcTransmissionLevel
+
+time_series_transmission$District_of_Columbia <- time_series$cdcTransmissionLevelTimeseries[[which(data$state=="DC")]]$cdcTransmissionLevel
+
+print(head(time_series_transmission))
+```
+
+plot
+```{r}
+time_series_transmission[seq(1,1300,by=100),]%>%
+  pivot_longer(cols=Alaska:District_of_Columbia,names_to="Countries",values_to="Transmission") %>%
+  ggplot(aes(x=Date,y=Transmission,colour=Countries,group=Countries)) +
+  geom_point(show.legend=TRUE) + 
+  labs(x="Date",y="Transmission Level") + 
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), legend.justification = c(0, 1))
+```
+
+
+## vi. How did the disease progress since it started ? 
+it increased at an increasing rate
+```{r}
+# New data-frame with dates
+time_series_cases <- list(Alaska = time_series %>% 
+                            filter(state=="AK") %>% 
+                            select(date,cases))
+
+# Cases of each state
+(time_series_cases$California <- time_series %>% 
+  filter(state=="CA") %>% 
+  select(date,cases))
+
+(time_series_cases$New_Jersey <- time_series %>% 
+  filter(state=="NJ") %>% 
+  select(date,cases))
+
+(time_series_cases$Tennessee <- time_series %>% 
+  filter(state=="TN") %>% 
+  select(date,cases))
+
+(time_series_cases$District_of_Columbia <- time_series %>% 
+  filter(state=="DC") %>% 
+  select(date,cases))
+```
+
+data to plot
+```{r}
+data_to_plot <- tibble(Date_Alaska = time_series_cases$Alaska$date[seq(1,1300,by=100)],
+ Cases_Alaska = time_series_cases$Alaska$cases[seq(1,1300,by=100)],
+ Date_California = time_series_cases$California$date[seq(1,1300,by=100)],
+ Cases_California = time_series_cases$California$cases[seq(1,1300,by=100)],
+ Date_New_Jersey = time_series_cases$New_Jersey$date[seq(1,1300,by=100)],
+ Cases_New_Jersey = time_series_cases$New_Jersey$cases[seq(1,1300,by=100)],
+ Date_Tennessee = time_series_cases$Tennessee$date[seq(1,1300,by=100)],
+ Cases_Tennessee = time_series_cases$Tennessee$cases[seq(1,1300,by=100)],
+ Date_District_of_Columbia = time_series_cases$District_of_Columbia$date[seq(1,1300,by=100)],
+ Cases_District_of_Columbia = time_series_cases$District_of_Columbia$cases[seq(1,1300,by=100)])
+```
+
+plots
+```{r, eval=FALSE}
+library(cowplot)
+
+fig1 <- ggplot(data_to_plot, aes(x = Date_Alaska, y = Cases_Alaska)) +
+  geom_point() +
+  labs(x = "Date", y = "Cases", title = "Alaska") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 35, hjust = 1), legend.justification = c(0, 1))
+
+fig2 <- ggplot(data_to_plot, aes(x = Date_California, y = Cases_California)) +
+  geom_point() +
+  labs(x = "Date", y = "Cases", title = "California") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 35, hjust = 1), legend.justification = c(0, 1))
+
+fig3 <- ggplot(data_to_plot, aes(x = Date_New_Jersey, y = Cases_New_Jersey)) +
+  geom_point() +
+  labs(x = "Date", y = "Cases", title = "New Jersey") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 35, hjust = 1), legend.justification = c(0, 1))
+
+fig4 <- ggplot(data_to_plot, aes(x = Date_Tennessee, y = Cases_Tennessee)) +
+  geom_point() +
+  labs(x = "Date", y = "Cases", title = "Tennessee") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 35, hjust = 1), legend.justification = c(0, 1))
+
+fig5 <- ggplot(data_to_plot, aes(x = Date_District_of_Columbia, y = Cases_District_of_Columbia)) +
+  geom_point() +
+  labs(x = "Date", y = "Cases", title = "District of Columbia") +
+  theme_bw() +
+  theme(axis.text.x = element_text(angle = 35, hjust = 1), legend.justification = c(0, 1))
+
+plot_grid(
+  fig1, fig2, fig3, fig4, fig5,
+  ncol = 2, labels = LETTERS[1:5],
+  align = "v", axis = "lr"
+)
+
+```
+
+screenshot
+```{r}
+knitr::include_graphics("screenshot.jpg") 
+```
+
