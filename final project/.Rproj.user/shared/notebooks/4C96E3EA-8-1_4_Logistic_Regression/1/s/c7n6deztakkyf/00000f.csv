@@ -1,0 +1,6 @@
+"0","ggplot(default_data) + "
+"0","  geom_bar(aes(x=default, fill=default)) + "
+"0","  labs(y=""No. of customers"", x=""Default"") +"
+"0","  scale_fill_manual(values = c(""skyblue"", ""orange"")) +"
+"0","  theme_light() + "
+"0","  theme(legend.position = ""none"")"

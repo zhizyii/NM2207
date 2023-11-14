@@ -1,0 +1,9 @@
+"0","model1 = glm(default ~ balance + income + student,
+             data = train)
+"
+"2","Warning: ‘-’ not meaningful for factors"
+"2","Warning: ‘-’ not meaningful for factors"
+"2","Warning: ‘-’ not meaningful for factors"
+"2","Error in glm.fit(x = c(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1,  : 
+  NA/NaN/Inf in 'y'
+"

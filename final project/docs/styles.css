@@ -1,0 +1,36 @@
+/* css styles */
+
+.navbar {
+    background-color: #F4F1E8; 
+}
+
+body {
+  background-color: #F4F1E8;
+}
+
+/* Change navbar title font size to 24px */
+.navbar-title {
+    font-size: 18px; 
+}
+
+
+h1.title {
+    font-size: 36px;
+}
+
+h1 {
+    font-size: 26px;
+    color: #522811;
+}
+
+h2 {
+    font-size: 22px;
+}
+
+h3 {
+    font-size: 20px;
+}
+
+h4 {
+    font-size: 18px;
+}

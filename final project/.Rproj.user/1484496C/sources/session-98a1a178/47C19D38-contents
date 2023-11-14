@@ -1,0 +1,17 @@
+---
+output:
+  quarto::quarto_html:
+    standalone: true
+    css: "styles.css"
+---
+
+```{=html}
+<style>
+  body {
+    background-image: url('intro2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+</style>
+```

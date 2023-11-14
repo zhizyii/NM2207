@@ -1,0 +1,2 @@
+"0","# Display the first few rows of new_data in a table"
+"0","kable(head(new_data))"

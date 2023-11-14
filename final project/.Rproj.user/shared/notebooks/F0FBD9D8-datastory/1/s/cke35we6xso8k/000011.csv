@@ -1,0 +1,3 @@
+"0","# read csv file"
+"0","data <- read.csv(""Annual_Greenhouse_Gas_(GHG)_Air_Emissions_Accounts.csv"")"
+"0","distinct(data,Industry)"

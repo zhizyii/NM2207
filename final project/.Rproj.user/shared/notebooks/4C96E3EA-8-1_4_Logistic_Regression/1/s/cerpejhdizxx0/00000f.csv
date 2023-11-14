@@ -1,0 +1,8 @@
+"0","ggplot(default_data, aes(x=default, y=income)) + "
+"0","  stat_boxplot(geom = 'errorbar', width = 0.2) + "
+"0","  geom_boxplot(aes(fill=default)) + "
+"0","  stat_summary(fun=""mean"", shape=4) + "
+"0","  scale_fill_manual(values = c(""skyblue"", ""orange"")) + "
+"0","  theme_light() + "
+"0","  theme(legend.position = ""none"")+"
+"0","  labs(x=""Default Status"",y=""Income"")"

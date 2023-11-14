@@ -1,0 +1,12 @@
+name: shinyapp4
+title: shinyapp4
+username: zhizyii
+account: zhizyii
+server: shinyapps.io
+hostUrl: https://api.shinyapps.io/v1
+appId: 10291019
+bundleId: 7896860
+url: https://zhizyii.shinyapps.io/shinyapp4/
+version: 1
+asMultiple: FALSE
+asStatic: FALSE

@@ -1,0 +1,947 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={Week-13-document},
+  pdfauthor={Ho Zhi Yi},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Week-13-document}
+\author{Ho Zhi Yi}
+\date{2023-11-14}
+
+\begin{document}
+\maketitle
+
+\hypertarget{week-9}{%
+\section{\texorpdfstring{\textbf{Week 9}}{Week 9}}\label{week-9}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  What is the topic that you have finalized? (Answer in 1 or 2
+  sentences)
+
+  \begin{itemize}
+  \item
+    \textbf{Topic:} Greenhouse Gas Emissions Trends in the World
+  \item
+    Analyzing Greenhouse Gas Emissions Trends based on:
+  \item
+    industry
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{distinct}\NormalTok{(data,Industry)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                                                               Industry
+## 1                                    Agriculture, Forestry and Fishing
+## 2                                                         Construction
+## 3                  Electricity, Gas, Steam and Air Conditioning Supply
+## 4                                                        Manufacturing
+## 5                                                               Mining
+## 6                                            Other Services Industries
+## 7                                                     Total Households
+## 8                                        Total Industry and Households
+## 9                                           Transportation and Storage
+## 10 Water supply; sewerage, waste management and remediation activities
+\end{verbatim}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    region
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{distinct}\NormalTok{(data,Country)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##                              Country
+## 1                 Advanced Economies
+## 2                             Africa
+## 3                           Americas
+## 4                               Asia
+## 5          Australia and New Zealand
+## 6                       Central Asia
+## 7                       Eastern Asia
+## 8                     Eastern Europe
+## 9  Emerging and Developing Economies
+## 10                            Europe
+## 11                               G20
+## 12                                G7
+## 13   Latin America and the Caribbean
+## 14                   Northern Africa
+## 15                  Northern America
+## 16                   Northern Europe
+## 17                           Oceania
+## 18                South-eastern Asia
+## 19                     Southern Asia
+## 20                   Southern Europe
+## 21                Sub-Saharan Africa
+## 22                      Western Asia
+## 23                    Western Europe
+## 24                             World
+\end{verbatim}
+
+  \begin{itemize}
+  \tightlist
+  \item
+    gas types
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{distinct}\NormalTok{(data,Gas\_Type)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            Gas_Type
+## 1    Carbon dioxide
+## 2 Fluorinated gases
+## 3    Greenhouse gas
+## 4           Methane
+## 5     Nitrous oxide
+\end{verbatim}
+\item
+  What are the data sources that you have curated so far? (Answer 1 or 2
+  sentences)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Annual greenhouse gas emissions by activity and by region (2010 to
+    2021)
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{week-10}{%
+\section{\texorpdfstring{\textbf{Week 10}}{Week 10}}\label{week-10}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  What is the question that you are going to answer? (Answer: One
+  sentence that ends with a question mark that could act like the title
+  of your data story)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Who contributed the most to greenhouse gas emissions?
+  \end{itemize}
+\item
+  Why is this an important question? (Answer: 3 sentences, each of which
+  has some evidence, e.g., \emph{``According to the United Nations...''}
+  to justify why the question you have chosen is important),
+
+  \begin{itemize}
+  \item
+    \textbf{Environmental Impact:} According to the United Nations,
+    understanding the factors driving greenhouse gas emissions is
+    crucial to address climate change and its environmental impact.
+    Reducing emissions is essential to mitigate the consequences of
+    global warming, such as more frequent extreme weather events and
+    rising sea levels.
+  \item
+    \textbf{Economic Implications:} According to Earth.org, reducing
+    carbon emissions would decrease the number of deaths related to air
+    pollution and help to ease pressure on healthcare systems.
+  \item
+    \textbf{Policy and Mitigation:} Accoriding to the International
+    Monetary Fund (IMF), to accelerate cuts to emissions, policymakers
+    need detailed statistics to assist them in devising effective
+    mitigation measures that can deliver the fastest and least
+    disruptive pathway toward net zero emissions.
+  \end{itemize}
+\item
+  Which rows and columns of the dataset will be used to answer this
+  question? (Answer: Actual names of the variables in the dataset that
+  you plan to use).
+
+  \begin{itemize}
+  \item
+    \textbf{Columns:}
+
+    \begin{itemize}
+    \item
+      \textbf{Year:} To track changes over time.
+
+      \begin{longtable}[]{@{}
+        >{\centering\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0833}}
+        >{\centering\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0833}}
+        >{\centering\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0833}}
+        >{\centering\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0833}}
+        >{\centering\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0833}}
+        >{\centering\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0833}}
+        >{\centering\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0833}}
+        >{\centering\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0833}}
+        >{\centering\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0833}}
+        >{\centering\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0833}}
+        >{\centering\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0833}}
+        >{\centering\arraybackslash}p{(\columnwidth - 22\tabcolsep) * \real{0.0833}}@{}}
+      \toprule\noalign{}
+      \endhead
+      \bottomrule\noalign{}
+      \endlastfoot
+      F2010 & F2011 & F2012 & F2013 & F2014 & F2015 & F2016 & F2017 &
+      F2018 & F2019 & F2020 & F2021 \\
+      \end{longtable}
+    \item
+      \textbf{Industry:} To examine emissions trends by sector.
+    \item
+      \textbf{Country:} To analyse regional variations in emissions.
+    \item
+      \textbf{Gas\_Type:} To understand the contributions of different
+      greenhouse gases.
+    \end{itemize}
+  \item
+    \textbf{Rows:}
+
+    \begin{itemize}
+    \item
+      for Industry:
+
+      \begin{itemize}
+      \item
+        Manufacturing
+      \item
+        Electricity, Gas, Steam and Air Conditioning Supply
+      \item
+        Transportation and Storage
+      \item
+        Agriculture, Forestry and Fishing
+      \item
+        Construction
+      \end{itemize}
+    \item
+      for Country:
+
+      \begin{itemize}
+      \item
+        Africa
+      \item
+        Americas
+      \item
+        Asia
+      \item
+        Europe
+      \item
+        Oceania
+      \end{itemize}
+    \item
+      for Gas\_Type:
+
+      \begin{itemize}
+      \item
+        Carbon dioxide
+      \item
+        Fluorinated gases
+      \item
+        Methane
+      \item
+        Nitrous oxide
+      \end{itemize}
+    \end{itemize}
+  \end{itemize}
+\item
+  \emph{Include the challenges and errors that you faced and how you
+  overcame them.}
+
+  \begin{itemize}
+  \item
+    \textbf{Challenge 1}
+
+    \begin{itemize}
+    \item
+      the regions available in the \textbf{Country column} contains some
+      regions that overlap, hence I had to select suitable regions to
+      ensure that there are no overlapping countries in the regions used
+      for analysis
+    \item
+      the industries available in the \textbf{Industry column} contains
+      some industries that overlap, hence I had to select suitable
+      industries to ensure that there are no overlapping industries used
+      for analysis
+    \item
+      \textbf{\emph{solution}}: select relevant variables in the Country
+      and Industry columns through filtering the data followed by
+      creating a new data frame by selecting the relevant columns as
+      shown below
+    \end{itemize}
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{new\_data }\OtherTok{\textless{}{-}}\NormalTok{ data }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(Country }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Africa"}\NormalTok{, }\StringTok{"Americas"}\NormalTok{, }\StringTok{"Asia"}\NormalTok{, }\StringTok{"Europe"}\NormalTok{, }\StringTok{"Oceania"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{filter}\NormalTok{(Industry }\SpecialCharTok{\%in\%} \FunctionTok{c}\NormalTok{(}\StringTok{"Manufacturing"}\NormalTok{, }\StringTok{"Electricity, Gas, }
+\StringTok{                         Steam and Air Conditioning Supply"}\NormalTok{, }\StringTok{"Transportation and Storage"}\NormalTok{, }
+                         \StringTok{"Agriculture, Forestry and Fishing"}\NormalTok{, }\StringTok{"Construction"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{select}\NormalTok{(Country, Industry, Gas\_Type, F2010, F2011, F2012, F2013, F2014, F2015, }
+\NormalTok{         F2016, F2017, F2018, F2019, F2020, F2021) }
+\end{Highlighting}
+\end{Shaded}
+
+  \begin{itemize}
+  \item
+    \textbf{Challenge 2}
+
+    \begin{itemize}
+    \item
+      column names were not ideal and straight forward to use
+    \item
+      the individual years were not named in numerical form
+    \item
+      the Country column was a bit confusing because the values under
+      this column are regions rather than specific countries
+    \item
+      \textbf{\emph{solution}}: rename the columns accordingly as shown
+      below
+    \end{itemize}
+  \end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{new\_names }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"Region"}\NormalTok{, }\StringTok{"Industry"}\NormalTok{, }\StringTok{"Gas\_Type"}\NormalTok{, }\DecValTok{2010}\NormalTok{, }\DecValTok{2011}\NormalTok{, }\DecValTok{2012}\NormalTok{, }\DecValTok{2013}\NormalTok{, }\DecValTok{2014}\NormalTok{, }\DecValTok{2015}\NormalTok{, }
+               \DecValTok{2016}\NormalTok{, }\DecValTok{2017}\NormalTok{, }\DecValTok{2018}\NormalTok{, }\DecValTok{2019}\NormalTok{, }\DecValTok{2020}\NormalTok{, }\DecValTok{2021}\NormalTok{)}
+
+\NormalTok{new\_data }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{set\_names}\NormalTok{(new\_names)}
+\end{Highlighting}
+\end{Shaded}
+\end{enumerate}
+
+\hypertarget{week-11}{%
+\section{Week 11}\label{week-11}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  List the visualisations that you are going to use in your project
+  (Answer: What are the variables that you are going to plot? How will
+  it answer your larger question?)
+
+  \begin{itemize}
+  \item
+    \textbf{Line graphs} of
+
+    \begin{itemize}
+    \item
+      industry against time
+    \item
+      each industry against time using shiny
+    \item
+      region against time
+    \item
+      each region against time using shiny
+    \item
+      gas type against time
+    \item
+      each gas type against time using shiny
+    \end{itemize}
+  \item
+    \textbf{Bar graphs} of
+
+    \begin{itemize}
+    \item
+      each gas type against industry using shiny
+    \item
+      each gas type against region using shiny
+    \end{itemize}
+  \item
+    These graphs will assist in pinpointing the region, industry, and
+    specific type of gas that exerts the most significant influence on
+    the greenhouse gas effect, thereby providing valuable information
+    for crafting policies targeted at reducing the primary source of
+    emissions.
+  \end{itemize}
+\item
+  How do you plan to make it interactive? (Answer: features of
+  ggplot2/shiny/markdown do you plan to use to make the story
+  interactive)
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Create shiny apps to allow users to select various variables to view
+    the plots for the chosen variable
+  \item
+    Use ggplot2 with plotly to make the plots interactive
+  \end{itemize}
+\item
+  What concepts incorporated in your project were taught in the course
+  and which ones were self-learnt? (Answer: Create a table with topics
+  in one column and Weeks in the other to indicate which concept taught
+  in which week is being used. Leave the entry of the Week column empty
+  for self-learnt concepts)
+
+  \begin{longtable}[]{@{}
+    >{\centering\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0465}}
+    >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.8953}}
+    >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.0523}}@{}}
+  \toprule\noalign{}
+  \begin{minipage}[b]{\linewidth}\centering
+  No.
+  \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+  Concepts
+  \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+  Week
+  \end{minipage} \\
+  \midrule\noalign{}
+  \endhead
+  \bottomrule\noalign{}
+  \endlastfoot
+  1 & Reading csv file
+
+  Accessing elements of a vector & Week 3 \\
+  2 & \begin{minipage}[t]{\linewidth}\raggedright
+  Manipulating data
+
+  \begin{itemize}
+  \item
+    tidy data ( filter( ), summarise( ) )
+  \item
+    choosing row/column
+  \item
+    piping operators (\%\textgreater\%)
+  \item
+    calculating mean and sum
+  \end{itemize}
+  \end{minipage} & Week 4 \\
+  3 & \begin{minipage}[t]{\linewidth}\raggedright
+  Functions
+
+  \begin{itemize}
+  \tightlist
+  \item
+    writing functions
+  \end{itemize}
+  \end{minipage} & Week 5 \\
+  4 & \begin{minipage}[t]{\linewidth}\raggedright
+  Iterations
+
+  \begin{itemize}
+  \tightlist
+  \item
+    for loops
+  \end{itemize}
+  \end{minipage} & Week 6 \\
+  5 & \begin{minipage}[t]{\linewidth}\raggedright
+  Visualizing data using Shiny ggplot2
+
+  \begin{itemize}
+  \tightlist
+  \item
+    creating line and bar graphs
+  \end{itemize}
+  \end{minipage} & Week 7 \\
+  6 & \begin{minipage}[t]{\linewidth}\raggedright
+  Visualizing data using Shiny
+
+  \begin{itemize}
+  \tightlist
+  \item
+    creating Shiny app for line and bar graphs
+  \end{itemize}
+  \end{minipage} & Week 8 \\
+  7 & \begin{minipage}[t]{\linewidth}\raggedright
+  Exploratory Data Analyses
+
+  \begin{itemize}
+  \tightlist
+  \item
+    pivot\_longer( ) function
+  \end{itemize}
+  \end{minipage} & Week 9 \\
+  8 & \begin{minipage}[t]{\linewidth}\raggedright
+  \textbf{Self-learnt}
+
+  \begin{itemize}
+  \item
+    using kable( ) to display the sample data in a table form
+  \item
+    sapply( ) function
+  \item
+    creating styles.scss file to edit the theme of the website as it
+    allows me to define variables, making it easier to edit the colours
+    of the website
+  \item
+    using panel-tabset to create tabs to show the plot and code in
+    different tabs
+  \item
+    using plotly to make the plots interactive (including plots in shiny
+    app)
+  \end{itemize}
+  \end{minipage} & - \\
+  \end{longtable}
+\item
+  \emph{Include the challenges and errors that you faced and how you
+  overcame them.}
+
+  \begin{itemize}
+  \item
+    \textbf{Challenge 1}
+
+    \begin{itemize}
+    \item
+      values of variables were not in the correct data type, hence
+      returning errors when generating the plots
+    \item
+      \textbf{\emph{solution}}: convert the values to specific data
+      types using
+
+      \begin{itemize}
+      \tightlist
+      \item
+        as.character(), as.numeric(), as.integer()
+      \end{itemize}
+    \end{itemize}
+  \item
+    \textbf{Challenge 2}
+
+    \begin{itemize}
+    \item
+      the data is too wide, making it difficult to manipulate for
+      calculations
+    \item
+      \textbf{\emph{solution}}: use pivot\_longer() to reshape the data
+      to a longer format
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{week-12}{%
+\section{Week 12}\label{week-12}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  \emph{Include the challenges and errors that you faced and how you
+  overcame them (if any)}
+
+  \begin{itemize}
+  \item
+    \textbf{Challenge 1}
+
+    \begin{itemize}
+    \item
+      the height of the bar graphs plotted may be misleading as the y
+      axis is auto adjusted to fit the values for each graph
+    \item
+      \textbf{\emph{solution}}: incorporate plotly into all the plots to
+      show the actual emissions value and make it interactive at the
+      same time
+    \end{itemize}
+  \item
+    \textbf{Challenge 2}
+
+    \begin{itemize}
+    \item
+      in the 4th shiny app of plotting the graphs for each gas type
+      against industry, the industry names were too long, so they are
+      overlapping one another. also, the legend is too long hence when
+      incorporating plotly into the graphs, the graphs are shrunk to the
+      point that they can't be seen
+    \item
+      \textbf{\emph{solution}}: use the first letter of each industry as
+      the labels to make it shorter using substring()
+    \end{itemize}
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{week-13-final-submission}{%
+\section{Week 13 (Final Submission)}\label{week-13-final-submission}}
+
+\hypertarget{diary-entry}{%
+\subsection{Diary Entry}\label{diary-entry}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\item
+  What is the theme of your data story?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    The theme of the data story revolves around understanding and
+    addressing greenhouse gas emissions trends from 2010 to 2021. The
+    analysis focuses on industries, regions, and gas types to identify
+    key contributors to greenhouse gas emissions. The question that we
+    are trying to answer is: Who is the highest contributor?
+  \end{itemize}
+\item
+  Why is it important to address this question?
+
+  \begin{itemize}
+  \tightlist
+  \item
+    Greenhouse gas emissions is a primary driver of climate change.
+    Identifying the most significant source of emissions allows
+    policymakers, scientists, and the public to make informed decisions
+    and implement targeted strategies for mitigation. The urgency of
+    addressing this question stems from the immediate and long-term
+    impacts of climate change on ecosystems, economies, and human
+    well-being.
+  \end{itemize}
+\item
+  Why do you think the data sources that you have curated can help you
+  answer the question?
+
+  \begin{itemize}
+  \item
+    \textbf{Credibility of the International Monetary Fund (IMF):} The
+    emissions data was obtained from the IMF website. The IMF is a
+    reputable international organization that collects and disseminates
+    economic and financial data. It is known for its rigorous data
+    collection processes and commitment to providing accurate and
+    reliable information. This enhances the credibility of the
+    greenhouse gas emissions data obtained.
+  \item
+    \textbf{Comprehensive Coverage:} The dataset covers a range of
+    industries, regions, and gas types, providing a comprehensive view
+    of greenhouse gas emissions. This allows holistic analysis of the
+    data.
+  \item
+    \textbf{Standardised Unit of Measurement:} The use of a standardised
+    unit of measurement (million metric tons of CO2 equivalent) ensures
+    consistency and facilitates meaningful comparisons across different
+    categories. This is crucial for accurate analysis and interpretation
+    of the emissions data.
+  \end{itemize}
+\item
+  What are the insights from the data and how are they depicted in
+  plots?
+
+  \begin{itemize}
+  \item
+    \textbf{Line Graphs}: Highlight emissions trends (2010-2021) for
+    industries, regions, and gas types
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Identified that the Electricity, Gas, Steam, and Air Conditioning
+      Supply industry, Asia, and Carbon Dioxide are the highest
+      contributors to greenhouse gas emissions based on industry, region
+      and gas type respectively.
+    \end{itemize}
+  \item
+    \textbf{Bar Graphs}: Visualize the total emissions of each gas type
+    across industries and regions
+
+    \begin{itemize}
+    \tightlist
+    \item
+      Proved that the Electricity, Gas, Steam, and Air Conditioning
+      Supply industry in Asia is the highest contributor to carbon
+      dioxide gas emissions.
+    \end{itemize}
+  \end{itemize}
+\item
+  How did you implement this entire project? Were there any new concepts
+  that you learnt to implement some aspects of it?
+
+  \begin{itemize}
+  \item
+    \textbf{Data Cleaning:} Cleaned the dataset to ensure that the
+    dataset is suitable for analysis
+  \item
+    \textbf{Data Visualisation:} Utilised line graphs and bar graphs to
+    visualise the emissions data
+  \item
+    \textbf{New concepts:} Integrated plotly into the ggplot2 plots and
+    shiny app to make the plots interactive
+  \end{itemize}
+\end{enumerate}
+
+\hypertarget{write-up}{%
+\subsection{Write-up}\label{write-up}}
+
+\hypertarget{background}{%
+\subsubsection{Background}\label{background}}
+
+Greenhouse gas emissions, primarily from human activities, drive climate
+change by trapping heat in the atmosphere, impacting human health and
+ecosystems (Basics of Climate Change \textbar{} US EPA, 2023). The
+global focus on greenhouse gas emissions has increased, with 54\% of the
+world's population considering climate change a very serious problem
+(Budiman, 2020). Recognising the environmental consequences, there is a
+pressing need to understand and address the intricacies of these
+emissions.
+
+This growing acknowledgment underscores the necessity to study and
+analyse greenhouse gas emissions data. As societies grapple with their
+carbon footprint, a deeper understanding of the factors driving
+emissions is crucial for informed decision-making and effective
+strategies to mitigate the impacts of climate change.
+
+In this writeup, we will delve into an analysis of greenhouse gas
+emission trends covering the period from 2010 to 2021. The focus will be
+to examine the contributions of different industries, regions, and gas
+types to greenhouse gas emissions. The dataset used for this analysis
+was sourced from the International Monetary Fund, ensuring a credible
+and reliable foundation for the investigation. The primary objective is
+to uncover the highest contributor to greenhouse gas emissions by
+meticulously discerning patterns and trends within the provided data.
+This analysis seeks to provide valuable insights that can guide
+strategies and decisions aimed at tackling the challenges presented by
+the most significant greenhouse gas emissions.
+
+\hypertarget{approach}{%
+\subsubsection{Approach}\label{approach}}
+
+To comprehensively analyse greenhouse gas emission trends from 2010 to
+2021, the approach involves a systematic examination of data focusing on
+industries, regions, and gas types. The following steps outlines the
+methodology:
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Data Collection:
+\end{enumerate}
+
+The dataset, encompassing annual greenhouse gas emissions data from 2010
+to 2021, was procured from the International Monetary Fund, which is a
+renowned source known for its precision and reliability. The information
+is categorised based on industry, region, and gas type.
+
+Link to IMF dataset:
+\url{https://climatedata.imf.org/datasets/c8579761f19740dfbe4418b205654ddf}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{1}
+\tightlist
+\item
+  Cleaning and Formatting:
+\end{enumerate}
+
+To ensure precision in the analysis, relevant variables related to
+industry, region, gas type, and yearly emissions (2010 to 2021) were
+filtered from the dataset, ensuring that only data essential to the
+investigation was retained for further analysis. Also, a critical aspect
+of data clarity lies in proper naming and formatting. Therefore, the
+column names were renamed to be clear, reflecting the nature of the data
+they encapsulate. This enhances the data's readability and at the same
+time make it easier to manipulate. Lastly, due to the fact that there
+were overlapping industries and regions, selection of suitable
+industries and regions was needed.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{2}
+\tightlist
+\item
+  Exploratory Data Analysis:
+\end{enumerate}
+
+Various statistical and graphical techniques were employed to extract
+insights into the overarching patterns and distributions of greenhouse
+gas emissions data from the dataset. Key visualisations including line
+graphs and bar graphs were generated.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{3}
+\tightlist
+\item
+  Interactive Visualisations:
+\end{enumerate}
+
+Through the utilisation of plotly, ggplot2 and shiny app, the
+visualisations offered interactivity for exploring greenhouse gas
+emissions data. Users can zoom, hover, and focus on specific data
+points, ensuring a dynamic and engaging experience. This approach
+encourages active user involvement in the exploration process, enhancing
+the understanding of greenhouse gas emissions trends.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{4}
+\tightlist
+\item
+  Identification of Highest Contributor of Greenhouse Gas Emissions:
+\end{enumerate}
+
+Through an in-depth analysis of data trends from the visualisations, the
+goal was to pinpoint the industry, region, and gas type that emerged as
+the highest contributor of greenhouse gas emissions spanning from 2010
+to 2021.
+
+Subsequently, bar graphs were used to prove if the identified industry
+and region were indeed the highest contributors to the specific gas type
+associated with the highest emissions.
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\setcounter{enumi}{5}
+\tightlist
+\item
+  Insights and Recommendations:
+\end{enumerate}
+
+Extracted insights from the line and bar graphs provided a comprehensive
+understanding of the dynamics of greenhouse gas emissions. Through
+recognising potential shortcomings in the analysis, there is room for
+improvements to enhance accuracy of the insights. These insights forms
+the groundwork for potential recommendations and strategies, addressing
+the challenges posed by the identified highest contributor.
+
+\hypertarget{final-outcome}{%
+\subsubsection{Final Outcome}\label{final-outcome}}
+
+The visualisations led to a conclusive finding that the primary
+contributor to greenhouse gas emissions is the Electricity, Gas, Steam,
+and Air Conditioning Supply industry in Asia, particularly associated
+with carbon dioxide emissions. The line graphs distinctly illustrated
+that this identified industry, Asia region, and carbon dioxide gas type
+exhibited the highest contributions to greenhouse gas emissions spanning
+from 2010 to 2021. Furthermore, the supporting evidence from the bar
+graphs substantiates the initial identification, providing additional
+confirmation that the Electricity, Gas, Steam, and Air Conditioning
+Supply industry in Asia is indeed the highest contributor to carbon
+dioxide gas emissions.
+
+Therefore, with this conclusion, suggested policies and strategies can
+be directed towards mitigating the impact of carbon dioxide emissions
+from the Electricity, Gas, Steam, and Air Conditioning Supply industry
+in Asia, contributing to a more effective approach in addressing the
+challenges posed by greenhouse gas emissions.
+
+\hypertarget{references}{%
+\subsubsection{References}\label{references}}
+
+Basics of climate Change \textbar{} \emph{US EPA}. (2023, November 1).
+US EPA.
+\url{https://www.epa.gov/climatechange-science/basics-climate-change\#}
+
+Budiman, A. (2020, July 27). \emph{Global Concern about Climate Change,
+Broad Support for Limiting Emissions} \textbar{} \emph{Pew Research
+Center}. Pew Research Center's Global Attitudes Project.
+\url{https://www.pewresearch.org/global/2015/11/05/global-concern-about-climate-change-broad-support-for-limiting-emissions/\#}
+
+\emph{Climate Change Indicators Dashboard}. (2021, March 19).
+\url{https://climatedata.imf.org/datasets/c8579761f19740dfbe4418b205654ddf/explore}
+
+\end{document}

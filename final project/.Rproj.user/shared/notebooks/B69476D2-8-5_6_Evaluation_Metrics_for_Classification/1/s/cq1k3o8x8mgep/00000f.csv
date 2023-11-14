@@ -1,0 +1,2 @@
+"0","pp <- pp %>% mutate(y_pred = ifelse(y_prob > 0.5, ""Yes"", ""No""))"
+"0","head(pp)"

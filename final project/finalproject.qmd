@@ -1,0 +1,44 @@
+---
+title: "Final Project"
+output:
+  quarto::quarto_html:
+    standalone: true
+    css: "styles.css"
+---
+
+This page is a documentation for the final project.
+
+## Week 9
+
+|                    |                                                                                                       |
+|----------------|--------------------------------------------------------|
+| PDF version        | [Week-9-documentations.pdf](https://github.com/zhizyii/NM2207/blob/main/week%209/Week-9-document.pdf) |
+| R Markdown Version | [Week-9-documentations.rmd](https://github.com/zhizyii/NM2207/blob/main/week%209/Week-9-document.Rmd) |
+
+## Week 10
+
+|                    |                                                                                                          |
+|----------------|--------------------------------------------------------|
+| PDF version        | [Week-10-documentations.pdf](https://github.com/zhizyii/NM2207/blob/main/week%2010/Week-10-document.pdf) |
+| R Markdown Version | [Week-10-documentations.rmd](https://github.com/zhizyii/NM2207/blob/main/week%2010/Week-10-document.Rmd) |
+
+## Week 11
+
+|                    |                                                                                                          |
+|----------------|--------------------------------------------------------|
+| PDF version        | [Week-11-documentations.pdf](https://github.com/zhizyii/NM2207/blob/main/week%2011/Week-11-document.pdf) |
+| R Markdown Version | [Week-11-documentations.rmd](https://github.com/zhizyii/NM2207/blob/main/week%2011/Week-11-document.Rmd) |
+
+## Week 12
+
+|                    |                                                                                                          |
+|----------------|--------------------------------------------------------|
+| PDF version        | [Week-12-documentations.pdf](https://github.com/zhizyii/NM2207/blob/main/week%2012/Week-12-document.pdf) |
+| R Markdown Version | [Week-12-documentations.rmd](https://github.com/zhizyii/NM2207/blob/main/week%2012/Week-12-document.Rmd) |
+
+## Week 13
+
+|                    |                                                                                                          |
+|--------------------|----------------------------------------------------------------------------------------------------------|
+| PDF version        | [Week-13-documentations.pdf](https://github.com/zhizyii/NM2207/blob/main/week%2013/Week-13-document.pdf) |
+| R Markdown Version | [Week-13-documentations.rmd](https://github.com/zhizyii/NM2207/blob/main/week%2013/Week-13-document.Rmd) |

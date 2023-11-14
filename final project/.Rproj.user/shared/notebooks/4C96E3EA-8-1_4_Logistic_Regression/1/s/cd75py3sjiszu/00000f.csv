@@ -1,0 +1,5 @@
+"0","ggplot(default_data) + "
+"0","  geom_bar(aes(x=default,fill=student), position = ""fill"") +"
+"0","  labs(y=""Proportion"", x=""Default Status"") + "
+"0","  theme_light() + "
+"0","  theme(legend.position = ""bottom"")"

@@ -1,0 +1,1 @@
+"0","auc <- sum(roc_df$sensitivity[-1] * diff(1 - roc_df$specificity))"

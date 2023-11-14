@@ -1,0 +1,35 @@
+{
+  "index.qmd": {
+    "index.html": "ba008742"
+  },
+  "about.qmd": {
+    "about.html": "bdc06460"
+  },
+  "intro.qmd": {
+    "intro.html": "3c6ef90d"
+  },
+  "home.qmd": {
+    "home.html": "8d17fdf7"
+  },
+  "doc.qmd": {
+    "doc.html": "93353fff"
+  },
+  "finalproject.qmd": {
+    "finalproject.html": "a16322fe"
+  },
+  "documentations.qmd": {
+    "documentations.html": "8b3b3ed9"
+  },
+  "datastory.qmd": {
+    "datastory.html": "97bd7aa2"
+  },
+  "assignments.qmd": {
+    "assignments.html": "974fb57b"
+  },
+  "shiny.qmd": {
+    "shiny.html": "62beb7ed"
+  },
+  "challenge11.qmd": {
+    "challenge11.html": "cee7f0be"
+  }
+}

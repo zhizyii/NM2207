@@ -1,0 +1,2 @@
+"0","pp$default <- factor(pp$default, levels = c(""Yes"", ""No""))"
+"0","pp$y_pred <- factor(pp$y_pred, levels = c(""Yes"", ""No""))"

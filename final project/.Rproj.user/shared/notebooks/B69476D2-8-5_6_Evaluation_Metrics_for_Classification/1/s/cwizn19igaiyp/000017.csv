@@ -1,0 +1,22 @@
+"0","e4 <- eval_model(model = model4,"
+"0","                 data = train,"
+"0","                 test_flag = FALSE)"
+"1","      y_pred
+"
+"1","y_true"
+"1","   No"
+"1","  Yes"
+"1","
+   No "
+"1"," 7191"
+"1","  509"
+"1","
+   Yes"
+"1","  547"
+"1"," 2417"
+"1","
+"
+"2","Setting levels: control = No, case = Yes
+"
+"2","Setting direction: controls < cases
+"

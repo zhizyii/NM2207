@@ -1,0 +1,22 @@
+"0","e2 <- eval_model(model = model2,"
+"0","                 data = train,"
+"0","                 test_flag = FALSE)"
+"1","      y_pred
+"
+"1","y_true"
+"1","   No"
+"1","  Yes"
+"1","
+   No "
+"1"," 7188"
+"1","  512"
+"1","
+   Yes"
+"1","  567"
+"1"," 2397"
+"1","
+"
+"2","Setting levels: control = No, case = Yes
+"
+"2","Setting direction: controls < cases
+"

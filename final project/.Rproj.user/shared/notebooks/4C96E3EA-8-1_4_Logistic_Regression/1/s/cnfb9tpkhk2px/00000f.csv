@@ -1,0 +1,4 @@
+"0","default_data <- default_data %>% "
+"0","  mutate(default = as.factor(default),"
+"0","         student = as.factor(student)) "
+"0","head(default_data)"

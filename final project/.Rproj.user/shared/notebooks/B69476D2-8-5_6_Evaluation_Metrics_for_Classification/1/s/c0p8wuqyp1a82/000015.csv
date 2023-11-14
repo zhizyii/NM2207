@@ -1,0 +1,4 @@
+"0","probs <- fitted(model2)"
+"0","pp <- train %>% mutate(y_prob = probs)"
+"0","rownames(pp) <- c(1:nrow(pp))"
+"0","head(pp)"
